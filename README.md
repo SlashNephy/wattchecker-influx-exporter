@@ -1,7 +1,7 @@
 # wattchecker-influx-exporter
 🔌 A tiny tool to export wattchecker metrics
 
-Demo -> [dashboard.starry.blue](https://dashboard.starry.blue/d/SwC1MrpWz/system?viewPanel=43&orgId=1&refresh=10s)
+Demo -> [dashboard.starry.blue](https://dashboard.starry.blue/d/HYxHPzyGk/wattchecker?orgId=1&refresh=5s)
 
 [![Docker Image Size (tag)](https://img.shields.io/docker/image-size/slashnephy/wattchecker-influx-exporter/latest)](https://hub.docker.com/r/slashnephy/wattchecker-influx-exporter)
 
