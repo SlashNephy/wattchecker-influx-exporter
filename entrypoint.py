@@ -13,11 +13,16 @@ influx_db = os.getenv("INFLUX_DB")
 line_pattern = r"^voltage = (\d+\.\d+)V , current = (\d+\.\d+)mA , power = (\d+\.\d+)W$"
 
 async def main():
-    with Popen(["unbuffer", "wattchecker", device], stdout=PIPE, bufsize=-1) as p:
+    with Popen(["unbuffer", "wattchecker", device], stdout=PIPE) as p:
         with open(p.stdout.fileno(), closefd=False) as stream:
             for line in stream:
+                if "received code error" in line:
+                    p.kill()
+                    return
+
                 m = re.match(line_pattern, line)
                 if not m:
+                    print(line)
                     continue
 
                 voltage, current, power = [float(x) for x in m.groups()]
